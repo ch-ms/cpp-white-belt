@@ -27,30 +27,16 @@ int main() {
   float a, b, c;
   cin >> a >> b >> c;
 
-  if (a != 0 && b != 0) {
-    float d = sqrt(b * b - 4 * a * c); 
-    float x1 = (-b + d) / (2 * a);
-    float x2 = (-b - d) / (2 * a);
+  float d = b * b - 4 * a * c; 
 
-    if (!isnan(x1) || !isnan(x2)) {
-      if (!isnan(x1) && !isnan(x2)) {
-        if (x1 == x2) {
-          cout << x1;
-        } else {
-          cout << x1 << " " << x2;
-        }
-      } else if (!isnan(x1)) {
-        cout << x1;
-      } else {
-        cout << x2;
-      }
-    }
-  } else if (a != 0) {
-    float x = sqrt((-c) / a);
-    if (!isnan(x)) cout << x;
-  } else if (b != 0 && c != 0) {
-    float x = -c / b;
-    cout << x;
+  if (a == 0) {
+    cout << (-c / b);
+  } else if (d == 0) {
+    cout << (-b / (2 * a));
+  } else if (d > 0) {
+    float x1 = (-b + sqrt(d)) / (2 * a);
+    float x2 = (-b - sqrt(d)) / (2 * a);
+    cout << x1 << " " << x2;
   }
 
   return 0;
