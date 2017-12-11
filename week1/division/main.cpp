@@ -11,5 +11,5 @@ int main() {
     cout << "Impossible";
   }
 
-  return 1;
+  return 0;
 }
